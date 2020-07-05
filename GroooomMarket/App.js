@@ -7,27 +7,14 @@
  */
 
 import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native';
-
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import {createStackNavigator} from '@react-navigation/stack'
 import SplashWindow from "./src/component/splashWindow";
+import BottomTab from './src/component/BottomTab';
+const RootStack = createStackNavigator();
 
-const App: () => React$Node = () => {
+const App=() => {
   return (
-    <SplashWindow/>
+    <BottomTab/>
   );
 };
 
