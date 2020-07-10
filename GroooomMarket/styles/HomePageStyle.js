@@ -8,6 +8,8 @@ const Style = StyleSheet.create({
     flexDirection: 'row',
     marginLeft: 'auto',
     margin : 5
+  },
+  EachItemList:{
   }
 });
 

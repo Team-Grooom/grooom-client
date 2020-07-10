@@ -1,29 +1,33 @@
-import React,{useState} from 'react';
+import React,{useState,useContext,useEffect} from 'react';
 import {} from 'react-native';
 import {Picker} from '@react-native-community/picker';
+import {UserState} from '../../../../store/store';
 
 const initialState = [
   {
-    myArea : "자양동"
+    myArea : "광진구"
   },
   {
-    myArea : "천호동"
+    myArea : "종로구"
   },
-  {
-    myArea : "역북동"
-  }
 ];
 
 const HomeHeaderPicker =()=> {
 
-  const [myArea,setMyPickerList] = useState();
+  useEffect(()=>{
+    setUserContext(myArea);
+  })
 
+  const [myArea,setMyPickerList] = useState();
+  const [userContext,setUserContext] = useContext(UserState);
   return(
     <Picker
       selectedValue={myArea}
       style={{height:50, width:150}}
       onValueChange={(selectedArea,selectedAreaIndex)=>{
         setMyPickerList(selectedArea);
+        console.log(selectedArea);
+        setUserContext(selectedArea);
       }}
     >
       {initialState.map((myAreaList,i)=>{

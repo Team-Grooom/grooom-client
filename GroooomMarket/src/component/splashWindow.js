@@ -1,19 +1,26 @@
 
-import React from 'react';
+import React,{useEffect} from 'react';
 import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
+  Image,
   View,
   Text,
-  StatusBar,
 } from 'react-native';
 
-const SplashWindow = () => {
+const SplashWindow = (props) => {
+
+  useEffect(()=>{
+    setInterval(()=>{
+      props.setIsLoading(true);
+    },3000);
+  })
+
   return(
-    <Text>
-      너무 반갑고~
-    </Text>
+    <View>
+      <Image
+        source={require('../../picture/teampic.png')}
+      />
+      <Text>구름마켓에 오신걸 환영해요!</Text>
+    </View>
   )
 }
 
