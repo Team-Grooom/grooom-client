@@ -7,15 +7,15 @@ import HomeHeaderFilterBtn from './HomeHeaderFilter';
 import HomeHeaderAlertBtn from './HomeHeaderAlert';
 import HomeStyle from '../../../../styles/HomePageStyle';
 
-const HomeHeader =()=> {
+const HomeHeader =({navigation})=> {
 
   return(
     <View style={HomeStyle.header}>
       <HomeHeaderPicker/>
       <View style={HomeStyle.btnContainer}>
-        <HomeHeaderSearchBtn/>
-        <HomeHeaderFilterBtn/>
-        <HomeHeaderAlertBtn/>
+        <HomeHeaderSearchBtn navigation={navigation} />
+        <HomeHeaderFilterBtn navigation={navigation}/>
+        <HomeHeaderAlertBtn navigation={navigation}/>
       </View>
     </View>
   )

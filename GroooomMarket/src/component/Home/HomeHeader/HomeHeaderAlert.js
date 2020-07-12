@@ -1,10 +1,10 @@
 import React from 'react';
 import {Button} from 'react-native';
 
-const HomeHeaderAlertButton =()=> {
+const HomeHeaderAlertButton =({navigation})=> {
 
   const onClickHeaderAlertBtn =()=> {
-    alert("알림 안내 화면으로 Navigate");
+    navigation.navigate("Alert Setting");
   }
 
   return(

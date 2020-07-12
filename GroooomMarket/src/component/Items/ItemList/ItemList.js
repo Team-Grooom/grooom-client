@@ -1,6 +1,7 @@
 import React,{useState,useContext} from 'react';
 import {View,Text,TouchableOpacity} from 'react-native';
 import {UserState} from '../../../../store/store';
+import EachItem from './EachItemList';
 
 // 자양동 , 청운 효자동, 역북동 파싱
 const DummyFetchData = [
@@ -36,13 +37,13 @@ const DummyFetchData = [
   },
 ]
 
-const ItemList =()=>{
+const ItemList =({navigation})=>{
 
   const [DummyList,setDummyList]=useState(DummyFetchData);
   const [userContext,setUserContext]=useContext(UserState);
 
   const OnItemClicked =(items)=> {
-    alert("아이템을 눌러서 화면을 이동해요");
+    navigation.navigate("Item");
   }
 
   return(
@@ -52,16 +53,7 @@ const ItemList =()=>{
           console.log(userContext);
           if(item.salesLocation==userContext){
             return(
-              <View key ={i}>
-                <TouchableOpacity onPress={OnItemClicked}>
-                  <Text>
-                    {item.itemName}
-                  </Text>
-                  <Text>
-                    {item.salesLocation}
-                  </Text>
-                </TouchableOpacity>
-              </View>
+              <EachItem key={i} navigation={navigation} itemName={item.itemName} salesLocation={item.salesLocation}/>
             )
           }
         })

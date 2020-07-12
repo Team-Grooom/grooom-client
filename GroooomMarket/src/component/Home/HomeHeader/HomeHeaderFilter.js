@@ -1,10 +1,11 @@
 import React from 'react';
 import {Button} from 'react-native';
+import FilteringAreaScreen from '../../MyPage/Setting/FilteringAreaScreen';
 
-const HomeHeaderFilterButton =()=> {
+const HomeHeaderFilterButton =({navigation})=> {
 
   const onClickHeaderFilterBtn =()=> {
-    alert("동네 지역 필터링 기능");
+    navigation.navigate("Filtering Area");
   }
 
   return(

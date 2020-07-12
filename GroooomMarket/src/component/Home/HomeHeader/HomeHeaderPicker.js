@@ -16,7 +16,7 @@ const HomeHeaderPicker =()=> {
 
   useEffect(()=>{
     setUserContext(myArea);
-  })
+  },[])
 
   const [myArea,setMyPickerList] = useState();
   const [userContext,setUserContext] = useContext(UserState);

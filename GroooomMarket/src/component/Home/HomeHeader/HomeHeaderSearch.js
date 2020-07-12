@@ -1,10 +1,11 @@
 import React from 'react';
 import {Button} from 'react-native';
+import SearchScreen from '../SearchScreen/SearchScreen';
 
-const HomeHeaderSearchNavigateButton =()=> {
+const HomeHeaderSearchNavigateButton =({navigation})=> {
 
   const onClickHeaderSearchBtn =()=> {
-    alert("Search화면으로 Navigate");
+    navigation.navigate('Search');
   }
 
   return(
