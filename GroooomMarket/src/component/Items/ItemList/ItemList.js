@@ -50,8 +50,8 @@ const ItemList =({navigation})=>{
     <View>
       {
         DummyList.map((item,i)=>{
-          console.log(userContext);
-          if(item.salesLocation==userContext){
+          console.log(userContext.myArea);
+          if(item.salesLocation==userContext.myArea){
             return(
               <EachItem key={i} navigation={navigation} itemName={item.itemName} salesLocation={item.salesLocation}/>
             )

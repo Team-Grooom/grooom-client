@@ -1,10 +1,15 @@
 import React,{createContext,useState} from 'react';
 
+const ContextSchema = {
+  authFlag:false,
+  myArea:'',
+}
+
 export const UserState = createContext();
 
 export const UserStateProvider =(props)=>{
 
-  const [userState,setUserState] = useState();
+  const [userState,setUserState] = useState(ContextSchema);
 
   return(
     <UserState.Provider value={[userState,setUserState]}>

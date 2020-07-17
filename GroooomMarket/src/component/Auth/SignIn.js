@@ -1,9 +1,57 @@
-import React,{useState} from 'react';
-import {TextInput,Button} from 'react-native';
+import React,{useState,useContext} from 'react';
+import {TextInput,Button,View} from 'react-native';
+import {UserState} from '../../../store/store';
 
-const SignIn =()=> {
+const dummyDB = [
+  {
+    userId : 'meoya',
+    pwd : '1'
+  },
+  {
+    userId : 'meoyaMan2',
+    pwd : '1'
+  },
+  {
+    userId : 'meoyaMan3',
+    pwd : '1'
+  },
+  {
+    userId : 'meoyaMan4',
+    pwd : '1'
+  },
+  {
+    userId : 'meoyaMan5',
+    pwd : '1'
+  }
+]
+
+const SignIn =({navigation})=> {
   const [userid,setUserid] = useState();
   const [pwd,setPwd] = useState();
+  const [userContext,setUserContext] = useContext(UserState);
+
+  const SignInChecker =()=> {
+    dummyDB.forEach(async(ele)=>{
+      if(userid == ele.userId && pwd == ele.pwd){
+        setUserContext({authFlag:true,myArea:''});
+      }
+    })
+    console.log(userContext);
+  }
+
+  const onPressSignInBtn =()=> {
+    SignInChecker();
+    if(userContext.authFlag){
+      alert("로그인 성공하셧음");
+      navigation.reset(({
+        index:1,
+        routes:[{name:'Tab'}]
+      }));
+    }else{
+      alert("로그인 실패하심");
+    }
+    
+  }
 
   return(
     <View>
@@ -17,7 +65,7 @@ const SignIn =()=> {
         value={pwd}
         onChangeText={setPwd}
       />
-      <Button title="로그인" onPress={}/>
+      <Button title="로그인" onPress={onPressSignInBtn}/>
     </View>
   )
 }

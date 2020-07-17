@@ -15,7 +15,6 @@ const Tab = createBottomTabNavigator();
 
 const BottomTab =()=>{
   return(
-    <NavigationContainer>
       <Tab.Navigator>
         <Tab.Screen 
           name="구름마켓" 
@@ -38,7 +37,6 @@ const BottomTab =()=>{
           component={MyPage}
         />
       </Tab.Navigator>
-    </NavigationContainer>
   )
 }
 

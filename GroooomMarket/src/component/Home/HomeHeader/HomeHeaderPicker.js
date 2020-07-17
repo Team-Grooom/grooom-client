@@ -15,7 +15,7 @@ const initialState = [
 const HomeHeaderPicker =()=> {
 
   useEffect(()=>{
-    setUserContext(myArea);
+    setUserContext({authFlag:true,myArea:myArea});
   },[])
 
   const [myArea,setMyPickerList] = useState();
@@ -27,7 +27,7 @@ const HomeHeaderPicker =()=> {
       onValueChange={(selectedArea,selectedAreaIndex)=>{
         setMyPickerList(selectedArea);
         console.log(selectedArea);
-        setUserContext(selectedArea);
+        setUserContext({authFlag:true,myArea:selectedArea});
       }}
     >
       {initialState.map((myAreaList,i)=>{
