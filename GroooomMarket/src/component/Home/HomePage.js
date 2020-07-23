@@ -21,7 +21,7 @@ const initialHome =({navigation})=> {
 
 const HomePage = ()=>{
   return(
-    <HomeStack.Navigator>
+    <HomeStack.Navigator screenOptions={{headerShown:false}}>
       <HomeStack.Screen name="Home" component={initialHome}/>
       <HomeStack.Screen name="Search" component={SearchScreen}/>
       <HomeStack.Screen name="Filtering Area" component={FilteringAreaScreen}/>

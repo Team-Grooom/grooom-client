@@ -1,6 +1,5 @@
 import React,{useState,useContext,useEffect} from 'react';
 import {} from 'react-native';
-import {Picker} from '@react-native-community/picker';
 import {UserState} from '../../../../store/store';
 
 const initialState = [

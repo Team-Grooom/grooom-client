@@ -38,14 +38,26 @@ const App =()=> {
               component={SignInScreen}
               props={setUserState}
               option ={{
-                title:"로그인 화면"
+                title:"로그인 화면",
               }}
             />
           ) : (
-            <RootStack.Screen name="Tab" component={BottomTab}/>
+            <RootStack.Screen 
+              name="Main"
+              component={BottomTab}
+              options={{
+                headerShown:false
+              }}
+              />
           )
           }
-          <RootStack.Screen name="Tab" component={BottomTab}/>
+          <RootStack.Screen 
+            name="Tab" 
+            component={BottomTab}
+            options={{
+                  headerShown:false
+                }}
+          />
         </RootStack.Navigator>
       </NavigationContainer>
     </UserStateProvider>

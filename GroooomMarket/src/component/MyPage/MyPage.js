@@ -1,14 +1,15 @@
 import React from 'react';
-import {View,Text} from 'react-native';
+import {View} from 'react-native';
+import MyPageHeader from 'src/component/MyPage/MyPageHeader/MyPageHeader';
+import MyPageBody from 'src/component/MyPage/MyPageBody/MyPageBody';
+import {createStackNavigator} from '@react-navigation/stack';
 
-const MyPage =()=> {
+const MyPage =({navigation})=> {
   return(
-    <View>
-      <Text>
-        여기는 마이페이지얌.
-      </Text>
-    </View>
+      <View>
+        <MyPageHeader navigation={navigation}/>
+        <MyPageBody navigation={navigation}/>
+      </View>
   )
 }
-
 export default MyPage;

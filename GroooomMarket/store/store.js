@@ -1,7 +1,7 @@
 import React,{createContext,useState} from 'react';
 
 const ContextSchema = {
-  authFlag:false,
+  authFlag:true,
   myArea:'',
 }
 
