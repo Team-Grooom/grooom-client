@@ -1,14 +1,17 @@
-import React from 'react';
-import {View,Text} from 'react-native';
+import React,{useEffect} from 'react';
+import {View,Text,FlatList} from 'react-native';
+import ChatHeader from 'src/component/Chatting/ChatHeader';
+import ChatList from 'src/component/Chatting/ChatList/ChatList';
+import {createStackNavigator} from '@react-navigation/stack';
 
 const Chatting =()=>{
   return(
     <View>
-      <Text>
-        여기는 채팅하는 컴포넌트지
-      </Text>
+      <ChatHeader/>
+      <ChatList/>
     </View>
   )
 }
+
 
 export default Chatting;
