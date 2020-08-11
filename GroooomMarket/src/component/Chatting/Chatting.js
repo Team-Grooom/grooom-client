@@ -4,11 +4,11 @@ import ChatHeader from 'src/component/Chatting/ChatHeader';
 import ChatList from 'src/component/Chatting/ChatList/ChatList';
 import {createStackNavigator} from '@react-navigation/stack';
 
-const Chatting =()=>{
+const Chatting =({navigation})=>{
   return(
     <View>
       <ChatHeader/>
-      <ChatList/>
+      <ChatList navigation={navigation}/>
     </View>
   )
 }

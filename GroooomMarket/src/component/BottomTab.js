@@ -6,7 +6,7 @@ import { create } from 'react-test-renderer';
 import HomePage from './Home/HomePage';
 import Category from './Category/Category';
 import Writing from './Writing/Writing';
-import Chatting from './Chatting/Chatting';
+import Chatting from './Chatting/ChatScreen';
 import MyPage from './MyPage/MyPage';
 import Icon from 'react-native-vector-icons/Ionicons'
 
@@ -36,6 +36,13 @@ const BottomTab =()=>{
             }
             return <Icon name={iconName} size={35} color={color} />;
           },
+          tabBarVisible : ()=>{
+            if(route.name == 'ChatRoom'){
+              return false;
+            }else{
+              return true;
+            }
+          }
         })}
         tabBarOptions={{
           activeTintColor: 'skyblue',

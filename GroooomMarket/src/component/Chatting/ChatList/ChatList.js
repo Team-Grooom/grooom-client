@@ -1,6 +1,8 @@
 import React,{useState,useEffect} from 'react';
 import {View,Text,FlatList} from  'react-native';
-import ChatRoom from 'src/component/Chatting/ChatList/ChatRoom';
+import EachChatList from 'src/component/Chatting/ChatList/EachChatList';
+import ChatRoom from 'src/component/Chatting/ChatRoom/ChatRoom';
+import {createStackNavigator} from '@react-navigation/stack';
 
 const dummyChatList = [
   {
@@ -90,7 +92,7 @@ const ChatList =({navigation})=> {
 
   const renderChatRoom =({item})=> {
     return(
-      <ChatRoom navigation={navigation} id={item.id} nickname={item.nickname} latestChat={item.latestChat}/>
+      <EachChatList navigation={navigation} id={item.id} nickname={item.nickname} latestChat={item.latestChat}/>
     )
   }
 
@@ -107,14 +109,5 @@ const ChatList =({navigation})=> {
     </View>
   )
 }
-
-// const ChatStack = createStackNavigator(); // 채팅방을 열어줄 채팅 리스트
-
-// const ChattingNavigator =()=> {
-//   <ChatStack.Navigator>
-//     <ChatStack.Screen name="ChatList" component={ChatList}></ChatStack.Screen>
-
-//   </ChatStack.Navigator>
-// }
 
 export default ChatList;
