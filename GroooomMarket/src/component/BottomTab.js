@@ -6,7 +6,7 @@ import { create } from 'react-test-renderer';
 import HomePage from './Home/HomePage';
 import Category from './Category/Category';
 import Writing from './Writing/Writing';
-import Chatting from './Chatting/ChatScreen';
+import Chatting from './Chatting/Chatting';
 import MyPage from './MyPage/MyPage';
 import Icon from 'react-native-vector-icons/Ionicons'
 
@@ -20,7 +20,6 @@ const BottomTab =()=>{
         screenOptions={({ route }) => ({
           tabBarIcon: ({ focused, color, size }) => {
             let iconName;
-
             if (route.name === '구름마켓') {
               iconName = focused
                 ? 'basket'
@@ -36,13 +35,6 @@ const BottomTab =()=>{
             }
             return <Icon name={iconName} size={35} color={color} />;
           },
-          tabBarVisible : ()=>{
-            if(route.name == 'ChatRoom'){
-              return false;
-            }else{
-              return true;
-            }
-          }
         })}
         tabBarOptions={{
           activeTintColor: 'skyblue',

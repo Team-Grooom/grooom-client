@@ -13,6 +13,7 @@ import BottomTab from './src/component/BottomTab';
 import SignInScreen from './src/component/Auth/SignIn';
 import {UserStateProvider,UserState} from './store/store';
 import { StackActions,NavigationContainer } from '@react-navigation/native';
+import ChatRoom from 'src/component/Chatting/ChatRoom/ChatRoom';
 const RootStack = createStackNavigator();
 
 const App =()=> {
@@ -57,6 +58,13 @@ const App =()=> {
             options={{
                   headerShown:false
                 }}
+          />
+          <RootStack.Screen
+            name="ChatRoomModal"
+            component={ChatRoom}
+            options={{
+              headerShown:false
+            }}
           />
         </RootStack.Navigator>
       </NavigationContainer>

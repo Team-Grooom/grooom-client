@@ -7,6 +7,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 const StyledButton = styled.TouchableOpacity`
   border-bottom-width : 1px;
   border-color : #e0e0eb;
+  
 `;
 
 const StyledView = styled.View`
@@ -28,18 +29,18 @@ const EachChatList =(props)=> {
 
   const onClickChatRoom =()=> {
     // navigation 이동
-    props.navigation.navigate("ChatRoom",{
-      id : props.id,
-      nickname : props.nickname,
+    props.navigation.navigate("ChatRoomModal",{
+      buyer : props.buyer,
+      seller : props.seller,
+      roomCode : props.roomCode
     });
   }
 
   return(
     <StyledButton onPress={onClickChatRoom}>
       <StyledView>
-        <Text>{props.id}</Text>
-        <StyledTitle>{props.nickname}</StyledTitle>
-        <StyledDescription>{props.latestChat}</StyledDescription>
+        <Text>{"Buyer : "+props.buyer}</Text>
+        <StyledTitle>{"Seller : "+props.seller}</StyledTitle>
       </StyledView>
     </StyledButton>
   )

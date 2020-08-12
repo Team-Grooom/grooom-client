@@ -1,8 +1,10 @@
 import React,{useState,useEffect} from 'react';
 import {View,Text,FlatList} from  'react-native';
+import styled from 'styled-components/native';
 import EachChatList from 'src/component/Chatting/ChatList/EachChatList';
 import ChatRoom from 'src/component/Chatting/ChatRoom/ChatRoom';
 import {createStackNavigator} from '@react-navigation/stack';
+const ChatFetch = require('src/api/ChatFetch');
 
 const dummyChatList = [
   {
@@ -88,23 +90,35 @@ const dummyChatList = [
 ];
 
 const ChatList =({navigation})=> {
-  const [dummyList,setDummyList] = useState([]);
+  const [chatList,setChatList] = useState([]);
 
   const renderChatRoom =({item})=> {
+    console.log(item);
     return(
-      <EachChatList navigation={navigation} id={item.id} nickname={item.nickname} latestChat={item.latestChat}/>
+      <EachChatList roomCode={item.roomCode} navigation={navigation} seller={item.seller} buyer={item.buyer} />
     )
   }
 
+  const ChatListFetch =async()=>{
+    const result = await ChatFetch.ChatListFetchAPI();
+    if(result.statusCode===200){
+      // 응답에 성공하였다.
+      setChatList(result.data);
+    }else{
+      // 에러 처리
+      alert('채팅 리스트를 불러오는데 실패하였다.');
+    }
+  }
+
   useEffect(()=>{
-    setDummyList(dummyChatList); // set chat list as State
+    ChatListFetch();
   },[])
   return(
     <View>
       <FlatList
-        data={dummyList}
+        data={chatList}
         renderItem={renderChatRoom}
-        keyExtractor={item => item.id}
+        keyExtractor={item=>item._id}
       />
     </View>
   )

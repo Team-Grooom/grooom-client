@@ -15,14 +15,13 @@ const StyleView = styled.View`
 
 const StyledIcon = styled(Icon)`
   color : #e6f2ff;
-  font-size : 30;
 `;
 
 const ChatRoomHeader =(props)=> {
   return(
     <View style={{backgroundColor:"#99ccff"}}>
       <StyleView>
-        <Text style={HeaderTextStyle.HeaderFont}>{props.nickname}</Text>
+        <Text style={HeaderTextStyle.HeaderFont}>{props.seller}</Text>
         <StyledIcon name="cog-outline"></StyledIcon>
       </StyleView>
     </View>

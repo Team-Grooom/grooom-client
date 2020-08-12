@@ -15,7 +15,7 @@ const StyleView = styled.View`
 
 const StyledIcon = styled(Icon)`
   color : #e6f2ff;
-  font-size : 30;
+  font-size : 30px;
 `;
 
 const ChatHeader =()=> {

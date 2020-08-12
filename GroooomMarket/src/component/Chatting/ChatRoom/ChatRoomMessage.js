@@ -1,42 +1,48 @@
-import React,{useState,useEffect} from 'react';
+import React,{useState,useEffect,useContext} from 'react';
 import styled from 'styled-components/native';
-import { FlatList } from 'react-native-gesture-handler';
+import { View, FlatList } from 'react-native-gesture-handler';
 import MessageBubble from 'src/component/Chatting/ChatRoom/MessageBubble';
-const ChatFetch = require('src/api/ChatFetch');
+import {SocketContext} from 'store/ChatSocketStore';
 
-const dummyChat=[
-  {id : 1,message : "이히힣히1"},
-  {id : 2,message : "이히힣히2"},
-  {id : 3,message : "이히힣히3"},
-  {id : 4,message : "이히힣히4"},
-  {id : 5,message : "이히힣히5"},
-  {id : 6,message : "이히힣히6"},
-]
+const StyledView = styled.View`
+  width : 100%;
+  height : 86%;
+`;
 
-const ChatRoomMessage =()=> {
-  const [messageList,setMessageList] =useState(dummyChat);
+const ChatRoomMessage =({roomCode,user})=> {
+  const [messageList,setMessageList] =useState([]);
+  const socket = useContext(SocketContext); // 소켓 컨텍스트에서 소켓 받아오기
 
-  const renderChatMessage =({item})=> {
-    return(
-      <MessageBubble message={item.message}/>
-    )
+  const renderChatMessage =({item}) => 
+    item.user==='MinJong'? <MessageBubble myMsgFlag ={true} message={item.msg}/> : <MessageBubble myMsgFlag ={false} message={item.msg}/>;
+
+  // 처음에 채팅방 렌더링
+  const getChatHistory =()=> {
+    socket.emit('Room',roomCode,user);
+    socket.on('get history',(result)=>{
+      console.log(result);
+      setMessageList(result); // 이전의 메시지를 스테이트로
+    })
   }
+  // Did Mount?
+  useEffect(()=>{
+    getChatHistory();
+  },[])
 
-  // const ChatListFetch = async()=> {
-  //   const result = await ChatFetch.ChatListFetchAPI();
-  //   setMessageList(result);
-  // }
-
-  // useEffect(()=>{
-  //   ChatListFetch();
-  // },[]);
+  // 새로운 메시지가 올때의 이벤트
+  socket.on('chat message',(roomCode,user,msg)=>{
+    setMessageList(messageList.concat({roomCode,user,msg}));
+  })
 
   return(
-    <FlatList
-      data={messageList}
-      renderItem={renderChatMessage}
-      keyExtractor={item=>item.id}
-    />
+    <StyledView>
+      <FlatList
+        inverted={true}
+        data={messageList}
+        renderItem={renderChatMessage} 
+        keyExtractor={item=>item._id}
+      />
+    </StyledView>
   )
 }
 
