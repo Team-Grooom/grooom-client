@@ -1,16 +1,13 @@
 import React from 'react';
-import {Button} from 'react-native';
 import FilteringAreaScreen from '../../MyPage/Setting/FilteringAreaScreen';
+import Icon from 'react-native-vector-icons/Ionicons';
 
-const HomeHeaderFilterButton =({navigation})=> {
+const HomeHeaderFilterButton = ({navigation}) => {
+  const onClickHeaderFilterBtn = () => {
+    navigation.navigate('Filtering Area');
+  };
 
-  const onClickHeaderFilterBtn =()=> {
-    navigation.navigate("Filtering Area");
-  }
-
-  return(
-    <Button title="Filter" onPress={onClickHeaderFilterBtn}/>
-  )
-}
+  return <Icon name="filter" size={30} onPress={onClickHeaderFilterBtn} />;
+};
 
 export default HomeHeaderFilterButton;
