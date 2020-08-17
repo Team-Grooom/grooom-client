@@ -13,12 +13,13 @@ const initialState = [
 ];
 
 const HomeHeaderPicker = () => {
+  const [myArea, setMyPickerList] = useState(initialState[0]);
+  const [userContext, setUserContext] = useContext(UserState);
+
   useEffect(() => {
-    setUserContext({authFlag: true, myArea: myArea});
+    setUserContext({authFlag: true, myArea: myArea.myArea});
   }, []);
 
-  const [myArea, setMyPickerList] = useState();
-  const [userContext, setUserContext] = useContext(UserState);
   return (
     <Picker
       selectedValue={myArea}
