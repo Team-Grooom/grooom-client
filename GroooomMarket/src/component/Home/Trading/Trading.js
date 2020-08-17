@@ -1,10 +1,13 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View} from 'react-native';
+import ItemList from '../../Items/ItemList/ItemList';
 
-export default function Trading() {
+const Trading = ({navigation}) => {
   return (
     <View>
-      <Text>아이템</Text>
+      <ItemList navigation={navigation} />
     </View>
   );
-}
+};
+
+export default Trading;

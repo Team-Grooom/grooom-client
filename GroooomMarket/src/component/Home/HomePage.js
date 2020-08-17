@@ -1,7 +1,6 @@
 import React from 'react';
 import {View, Text} from 'react-native';
 import HomeHeader from './HomeHeader/HomeHeader';
-import ItemList from '../Items/ItemList/ItemList';
 import SearchScreen from './SearchScreen/SearchScreen';
 import FilteringAreaScreen from '../MyPage/Setting/FilteringAreaScreen';
 import AlertSettingScreen from '../MyPage/Setting/AlertSettingScreen';
@@ -13,11 +12,10 @@ const HomeStack = createStackNavigator();
 
 const initialHome = ({navigation}) => {
   return (
-    <View>
+    <>
       <HomeHeader navigation={navigation} />
       <TopTabNavigator navigation={navigation} />
-      <ItemList navigation={navigation} />
-    </View>
+    </>
   );
 };
 
