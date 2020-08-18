@@ -1,6 +1,6 @@
 import React,{useState,useContext,useEffect} from 'react';
 import {} from 'react-native';
-import {UserState} from '../../../../store/store';
+import {UserState} from '../../../store/store';
 
 const initialState = [
   {

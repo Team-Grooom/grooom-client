@@ -11,10 +11,10 @@ import {createStackNavigator} from '@react-navigation/stack'
 import SplashWindow from "./src/component/splashWindow";
 import BottomTab from './src/component/BottomTab';
 import SignInScreen from './src/component/Auth/SignIn';
-import {UserStateProvider,UserState} from './store/store';
+import {UserStateProvider,UserState} from './src/store/store';
 import { StackActions,NavigationContainer } from '@react-navigation/native';
 import ChatRoom from 'src/component/Chatting/ChatRoom/ChatRoom';
-import SignUpPage from 'src/component/Auth/SignUp';
+import SignUpView from 'src/view/Auth/SignUpView';
 const RootStack = createStackNavigator();
 
 const App =()=> {
@@ -36,10 +36,10 @@ const App =()=> {
         <RootStack.Navigator>
           { userContext.authFlag == false ? (
             <RootStack.Screen
-              name="Sign In"
-              component={SignInScreen}
-              option ={{
-                title:"로그인 화면",
+              name="SignUp"
+              component={SignUpView}
+              options ={{
+                headerShown:false
               }}
             />
           ) : (
@@ -65,13 +65,6 @@ const App =()=> {
             options={{
               headerShown:false
             }}
-          />
-          <RootStack.Screen
-              name="Sign Up"
-              component={SignUpPage}
-              option ={{
-                title:"회원가입 화면",
-              }}
           />
         </RootStack.Navigator>
       </NavigationContainer>

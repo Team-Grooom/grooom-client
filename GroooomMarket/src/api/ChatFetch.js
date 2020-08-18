@@ -14,5 +14,5 @@ module.exports ={
     .catch((err)=>{
       console.log('에러발생했다. : '+err);
     })
-  }
+  },
 }

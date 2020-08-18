@@ -1,7 +1,7 @@
 /**
  * @format
  */
-import {UserStateProvider} from './store/store'
+import {UserStateProvider} from './src/store/store'
 import React from 'react';
 import {AppRegistry} from 'react-native';
 import App from './App';

@@ -1,6 +1,6 @@
 import React,{useState,useContext} from 'react';
 import {View,Text,TouchableOpacity} from 'react-native';
-import {UserState} from '../../../../store/store';
+import {UserState} from '../../../store/store';
 import EachItem from './EachItemList';
 
 // 자양동 , 청운 효자동, 역북동 파싱

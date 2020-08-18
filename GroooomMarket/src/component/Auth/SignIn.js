@@ -1,6 +1,6 @@
 import React,{useState,useContext} from 'react';
 import {TextInput,Button,View} from 'react-native';
-import {UserState} from '../../../store/store';
+import {UserState} from '../../store/store';
 import {createStackNavigator} from '@react-navigation/stack';
 import styled from 'styled-components/native';
 

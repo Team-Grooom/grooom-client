@@ -1,7 +1,7 @@
 import React,{useState,useContext} from 'react';
 import {Text,View,TextInput,Button,TouchableOpacity} from 'react-native';
 import styled from 'styled-components/native';
-import {SocketContext} from 'store/ChatSocketStore';
+import {SocketContext} from 'src/store/ChatSocketStore';
 
 const StyledView = styled.View`
   display:flex;
