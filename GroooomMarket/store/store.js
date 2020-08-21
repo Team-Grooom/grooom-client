@@ -1,19 +1,18 @@
-import React,{createContext,useState} from 'react';
+import React, {createContext, useState} from 'react';
 
 const ContextSchema = {
-  authFlag:false,
-  myArea:'',
-}
+  authFlag: true,
+  myArea: '',
+};
 
 export const UserState = createContext();
 
-export const UserStateProvider =(props)=>{
+export const UserStateProvider = ({children}) => {
+  const [userState, setUserState] = useState(ContextSchema);
 
-  const [userState,setUserState] = useState(ContextSchema);
-
-  return(
-    <UserState.Provider value={[userState,setUserState]}>
-      {props.children}
+  return (
+    <UserState.Provider value={[userState, setUserState]}>
+      {children}
     </UserState.Provider>
-  )
-}
+  );
+};
