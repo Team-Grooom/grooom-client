@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo} from 'react';
 import {View, Text, Image, TouchableOpacity} from 'react-native';
 import styled from 'styled-components/native';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -31,7 +31,7 @@ const EachItemList = ({item, navigation}) => {
   };
 
   return (
-    <Wrapper onPress={OnItemClicked}>
+    <Wrapper onPress={OnItemClicked} key={item.id}>
       <Thumbnail source={require('../../../../picture/teampic.png')} />
       <InfoContainer>
         <Title>{item.itemName}</Title>

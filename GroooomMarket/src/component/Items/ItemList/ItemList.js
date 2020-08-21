@@ -1,4 +1,4 @@
-import React, {useState, useContext, useCallback, useEffect} from 'react';
+import React, {useState, useContext, useEffect} from 'react';
 import {View, FlatList} from 'react-native';
 import styled from 'styled-components';
 import {UserState} from '../../../../store/store';
@@ -10,20 +10,18 @@ const ItemList = ({navigation}) => {
   const [page, setPage] = useState(0);
   const [refresh, setRefresh] = useState(false);
 
-  const getBoardData = async () => {
-    await setBoard(
+  const getBoardData = () => {
+    setBoard(
       refresh
-        ? DummyFetchData.splice(0 + page * 10, 10)
-        : board.concat(DummyFetchData.splice(0 + page * 10, 10)),
+        ? DummyFetchData.slice(0 + page * 10, 10)
+        : board.concat(DummyFetchData.slice(0 + page * 10, 10 + page * 10)),
     );
-    setPage(page + 1);
     setRefresh(false);
   };
 
   useEffect(() => {
     getBoardData();
-    console.log(board);
-  }, []);
+  }, [page]);
 
   const ItemRender = ({item}) => {
     if (item.salesLocation === userContext.myArea) {
@@ -33,12 +31,13 @@ const ItemList = ({navigation}) => {
 
   const loadMoreHandler = () => {
     getBoardData;
+    setPage(page + 1);
   };
 
-  const refreshHandler = async () => {
-    await setRefresh(true);
-    await setPage(0);
-    await getBoardData;
+  const refreshHandler = () => {
+    setRefresh(true);
+    setPage(0);
+    getBoardData;
   };
 
   return (
@@ -46,7 +45,7 @@ const ItemList = ({navigation}) => {
       <FlatList
         data={board}
         renderItem={ItemRender}
-        keyExtractor={item => item.id}
+        keyExtractor={(item, index) => item.id}
         onEndReached={loadMoreHandler}
         onEndReachedThreshold={0.5}
         refreshing={refresh}
