@@ -1,31 +1,16 @@
 import React, {useState, useContext} from 'react';
 import {TextInput, Button, View} from 'react-native';
 import {UserState} from '../../../store/store';
+import {createStackNavigator} from '@react-navigation/stack';
+import styled from 'styled-components/native';
 
-const dummyDB = [
-  {
-    userId: 'meoya',
-    pwd: '1',
-  },
-  {
-    userId: 'meoyaMan2',
-    pwd: '1',
-  },
-  {
-    userId: 'meoyaMan3',
-    pwd: '1',
-  },
-  {
-    userId: 'meoyaMan4',
-    pwd: '1',
-  },
-  {
-    userId: 'meoyaMan5',
-    pwd: '1',
-  },
-];
+const StyledBtn = styled.Button`
+  width: 50%;
+  height: 50%;
+  margin: 10px;
+`;
 
-const SignIn = ({navigation}) => {
+const SignInPage = ({navigation}) => {
   const [userid, setUserid] = useState();
   const [pwd, setPwd] = useState();
   const [userContext, setUserContext] = useContext(UserState);
@@ -36,6 +21,10 @@ const SignIn = ({navigation}) => {
         setUserContext({authFlag: true, myArea: ''});
       }
     });
+  };
+
+  const onPressSignUpBtn = () => {
+    navigation.navigate('Sign Up');
   };
 
   const onPressSignInBtn = () => {
@@ -63,9 +52,10 @@ const SignIn = ({navigation}) => {
         value={pwd}
         onChangeText={setPwd}
       />
-      <Button title="로그인" onPress={onPressSignInBtn} />
+      <StyledBtn title="로그인" onPress={onPressSignInBtn} />
+      <StyledBtn title="회원가입" onPress={onPressSignUpBtn} />
     </View>
   );
 };
 
-export default SignIn;
+export default SignInPage;
