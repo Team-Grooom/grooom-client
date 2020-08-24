@@ -15,6 +15,7 @@
     "@react-navigation/bottom-tabs": "^5.6.1",
     "@react-navigation/native": "^5.6.1",
     "@react-navigation/stack": "^5.6.2",
+    "iamport-react-native": "^1.5.2",
     "lottie-react-native": "^3.5.0",
     "module-resolve": "^1.1.1",
     "node-fetch": "^2.6.0",
@@ -25,7 +26,9 @@
     "react-native-reanimated": "^1.9.0",
     "react-native-safe-area-context": "^3.0.7",
     "react-native-screens": "^2.9.0",
+    "react-native-sensitive-info": "^6.0.0-alpha.5",
     "react-native-vector-icons": "^7.0.0",
+    "react-native-webview": "^10.7.0",
     "socket.io-client": "^2.3.0",
     "styled-components": "^5.1.1"
   },
@@ -38,8 +41,10 @@
     "eslint": "^6.5.1",
     "eslint-import-resolver-babel-module": "^5.1.2",
     "eslint-plugin-import": "^2.22.0",
+    "iamport-react-native": "^1.5.2",
     "jest": "^24.9.0",
     "metro-react-native-babel-preset": "^0.58.0",
+    "react-native-webview": "^10.7.0",
     "react-test-renderer": "16.11.0"
   },
   "jest": {

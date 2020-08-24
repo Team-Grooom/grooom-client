@@ -1,24 +1,30 @@
 import React from 'react';
 import { View } from 'react-native';
-import NicknameFormInput from 'src/component/molecule/Auth/nicknameFormInput';
-import PhoneNumberFormInput from 'src/component/molecule/Auth/phoneNumberFormInput';
-import RegionPicker from 'src/component/molecule/Auth/regionPicker';
-import SignUpSubmitButton from 'src/component/molecule/Auth/signUpSubmitButton';
+import NicknameFormInput from 'src/component/molecule/input/nicknameFormInput';
+import PhoneNumberFormInput from 'src/component/molecule/input/phoneNumberFormInput';
+import RegionPicker from 'src/component/molecule/picker/regionPicker';
+import SignUpSubmitButton from 'src/component/molecule/button/signUpSubmitButton';
 import styled from 'styled-components/native';
 
-const StyledView = styled.View`
-  display : flex;
-  flex-direction : column;
+const StyledButton = styled(SignUpSubmitButton)`
+  align-self: center;
 `;
 
-const SignUpFormBody =({onChange,onPress})=> {
+const BodyView = styled.View`
+  margin-top : 50%;
+  display : flex;
+  justify-content : flex-start;
+  height : 100%;
+`;
+
+const SignUpFormBody =({data=null,selectedValue,onChangeNickname,onChangePhoneNumber,onChangeLocation,onPress})=> {
   return(
-    <StyledView>
-      <NicknameFormInput onChage={onChange}/>
-      <PhoneNumberFormInput onChange={onChange}/>
-      <RegionPicker onChange={onChange}/>
-      <SignUpSubmitButton onPress={onPress}/>
-    </StyledView>
+    <BodyView>
+      <NicknameFormInput onChange={onChangeNickname}/>
+      <PhoneNumberFormInput onChange={onChangePhoneNumber}/>
+      <RegionPicker selectedValue={selectedValue} data={data} onChange={onChangeLocation}/>
+      <StyledButton onPress={onPress}/>
+    </BodyView>
   )
 }
 

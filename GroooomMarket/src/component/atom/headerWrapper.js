@@ -7,7 +7,7 @@ const Wrapper = styled.View`
   height : 50px;
   display: flex;
   align-items : center;
-  justify-content : center;
+  margin : 20px;
 `;
 
 const HeaderWrapper =({color,children})=> {

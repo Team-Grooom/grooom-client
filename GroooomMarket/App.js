@@ -8,7 +8,7 @@
 
 import React,{useState,useEffect,useContext} from 'react';
 import {createStackNavigator} from '@react-navigation/stack'
-import SplashWindow from "./src/component/splashWindow";
+import SplashWindow from "./src/view/splashView";
 import BottomTab from './src/component/BottomTab';
 import SignInScreen from './src/component/Auth/SignIn';
 import {UserStateProvider,UserState} from './src/store/store';
