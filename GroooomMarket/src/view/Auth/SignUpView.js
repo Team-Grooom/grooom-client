@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React from 'react';
 import SignUpTemplate from 'src/component/template/signUpTemplate';
 import fetch from 'node-fetch';
 import SInfo from 'react-native-sensitive-info';
@@ -9,9 +9,7 @@ const SignUpBackground = styled.View`
   background-color : white;
 `;
 
-const SignUpView =()=> {
-
-  const [fetchResult,setFetchResult] = useState();
+const SignUpView =({navigation})=> {
 
   // Save Local Encrypt Storage
   const saveTokenAtDevice = async () => {
@@ -32,23 +30,29 @@ const SignUpView =()=> {
       body : JSON.stringify(userData),
     })
     .then((res)=>res.json())
-    .then((json)=>{setFetchResult(json)})
+    .then((json)=>{
+      if(json.token){
+        saveTokenAtDevice(json.token); 
+        return true;
+      }
+      else {
+        alert("서버 에러 발생! 다시 시도 하세용~"); return false;
+      }
+    })
     .catch((err)=>{
       console.log('에러발생했다. : '+err);
     })
   }
 
   // Submit Button Click Event => Fetch API 사용
-  const onPressSubmitBtn =async(state)=> {
-    await createUser(state);
-    // TODO: make difference navigation event by Code
-
-    // 200
-    if(fetchResult.code===200){
+  const onPressSubmitBtn =async(userState)=> {
+    const SuccessFlag = await createUser(userState);
+    if(SuccessFlag){
       await saveTokenAtDevice(result);
       alert("회원이 되신걸 축하해요!");
+      navigation.navigate(''); // 로그인 로더로 이동
     }else{
-      alert("오류 발생,")
+      alert("오류 발생");
     }
   }
 

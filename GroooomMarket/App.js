@@ -10,7 +10,7 @@ import React,{useState,useEffect,useContext} from 'react';
 import {createStackNavigator} from '@react-navigation/stack'
 import SplashWindow from "./src/view/splashView";
 import BottomTab from './src/component/BottomTab';
-import SignInScreen from './src/component/Auth/SignIn';
+import LoginView from 'src/view/Auth/LogInView';
 import {UserStateProvider,UserState} from './src/store/store';
 import { StackActions,NavigationContainer } from '@react-navigation/native';
 import ChatRoom from 'src/component/Chatting/ChatRoom/ChatRoom';
@@ -27,31 +27,24 @@ const App =()=> {
       <SplashWindow setIsLoading={setIsLoading}/>
     )
   }
-
-  console.log(userContext);
-  
   return (
     <UserStateProvider>
       <NavigationContainer>
         <RootStack.Navigator>
-          { userContext.authFlag == false ? (
-            <RootStack.Screen
-              name="SignUp"
-              component={SignUpView}
-              options ={{
-                headerShown:false
-              }}
-            />
-          ) : (
-            <RootStack.Screen 
-              name="Main"
-              component={BottomTab}
-              options={{
-                headerShown:false
-              }}
-              />
-          )
-          }
+          <RootStack.Screen
+            name="Login"
+            component={LoginView}
+            options ={{
+              headerShown:false
+            }}
+          />
+          <RootStack.Screen 
+            name="Main"
+            component={BottomTab}
+            options={{
+              headerShown:false
+            }}
+          />
           <RootStack.Screen 
             name="Tab" 
             component={BottomTab}
@@ -65,6 +58,13 @@ const App =()=> {
             options={{
               headerShown:false
             }}
+          />
+          <RootStack.Screen
+              name="SignUp"
+              component={SignUpView}
+              options ={{
+                headerShown:false
+              }}
           />
         </RootStack.Navigator>
       </NavigationContainer>

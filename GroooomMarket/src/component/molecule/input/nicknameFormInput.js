@@ -13,15 +13,16 @@ import Icon from 'react-native-vector-icons/AntDesign';
 // View, Flex 1 to Parent Component
 const Wrapper = styled.View`
   display : flex;
+  width : 350px;
   align-items : center;
   justify-content : center;
+  margin : 10px;  
 `;
 
 const NicknameFormInput =({onChange})=> {
   return(
     <Wrapper>
-      <Label text="별명" color="black" size="20"></Label>
-      <Input placeholder="별명을 입력하세요"  leftIcon={<Icon name="adduser"/>} onChange={onChange}/>
+      <Input placeholder="닉네임을 입력하세요" label="닉네임" leftIcon={<Icon name="adduser"/>} onChange={onChange}/>
     </Wrapper>
   )
 }

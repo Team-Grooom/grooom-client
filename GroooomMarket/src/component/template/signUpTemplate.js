@@ -11,9 +11,9 @@ const dummyRegion =[
 ];
 
 const SignUpInfo ={
-  phoneNumber : '',
   location : '',
-  nickname : '',
+  nickName : '',
+  phoneNumber : '',
 }
 
 const SignUpTemplate =({onPress})=> {
@@ -33,6 +33,7 @@ const SignUpTemplate =({onPress})=> {
       phoneNumber : text
     });
   }
+
   const onChangeLocation =(text)=> {
     setUserInfo({
       ...userInfo,
@@ -40,15 +41,14 @@ const SignUpTemplate =({onPress})=> {
     });
   }
 
-  // When User submit form data
-  const submitData =()=> {
-    console.log(userInfo);
+  const onPressSubmitBtn =()=> {
+    onPress(userInfo);
   }
 
   return(
     <View>
       <SignUpHeader/>
-      <SignUpFormBody data={dummyRegion} onPress={submitData} 
+      <SignUpFormBody data={dummyRegion} onPress={onPressSubmitBtn} 
       onChangeNickname={onChangeNickname}
       onChangePhoneNumber={onChangePhoneNumber}
       onChangeLocation={onChangeLocation}
