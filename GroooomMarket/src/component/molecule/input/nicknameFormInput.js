@@ -13,7 +13,7 @@ import Icon from 'react-native-vector-icons/AntDesign';
 // View, Flex 1 to Parent Component
 const Wrapper = styled.View`
   display : flex;
-  width : 350px;
+  width : 80%;
   align-items : center;
   justify-content : center;
   margin : 10px;  
