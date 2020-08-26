@@ -18,10 +18,10 @@ const SplashText = styled.Text`
   color : black;
 `;
 
-const SplashWindow = (props) => {
+const SplashWindow = ({setIsLoadingTrue}) => {
   useEffect(()=>{
     setInterval(()=>{
-      props.setIsLoading(true);
+      setIsLoadingTrue();
     },1400);
   })
   // animation 코드 넣기

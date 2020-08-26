@@ -1,4 +1,5 @@
-import React,{useEffect,useState} from 'react';
+import React,{useEffect,useContext} from 'react';
+import {UserState} from 'src/store/store';
 import { View, Text } from 'react-native';
 import styled from 'styled-components/native';
 import Loader from 'src/component/molecule/loader/loader';
@@ -13,10 +14,15 @@ const StyledView = styled.View`
 
 const LoginTemplate =({checkAuth,navigateToMain,navigateToSignUp})=> {
 
+  const [userState,setUserState] = useContext(UserState);
+
   const navigationEvent =async()=> {
     const result = await checkAuth();
-    console.log(result);
     if(result){
+      setUserState({
+        ...UserState,
+        authFlag : true
+      });
       navigateToMain();
     }else{
       navigateToSignUp();

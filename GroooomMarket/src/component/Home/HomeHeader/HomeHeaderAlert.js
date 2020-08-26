@@ -1,15 +1,18 @@
 import React from 'react';
-import {Button} from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
 
-const HomeHeaderAlertButton =({navigation})=> {
+const HomeHeaderAlertButton = ({navigation}) => {
+  const onClickHeaderAlertBtn = () => {
+    navigation.navigate('Alert Setting');
+  };
 
-  const onClickHeaderAlertBtn =()=> {
-    navigation.navigate("Alert Setting");
-  }
-
-  return(
-    <Button title="알림" onPress={onClickHeaderAlertBtn}/>
-  )
-}
+  return (
+    <Icon
+      name="notifications-outline"
+      size={30}
+      onPress={onClickHeaderAlertBtn}
+    />
+  );
+};
 
 export default HomeHeaderAlertButton;

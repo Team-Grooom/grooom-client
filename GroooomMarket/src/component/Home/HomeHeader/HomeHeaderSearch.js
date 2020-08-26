@@ -1,16 +1,12 @@
 import React from 'react';
-import {Button} from 'react-native';
-import SearchScreen from '../SearchScreen/SearchScreen';
+import Icon from 'react-native-vector-icons/Ionicons';
 
-const HomeHeaderSearchNavigateButton =({navigation})=> {
-
-  const onClickHeaderSearchBtn =()=> {
+const HomeHeaderSearchNavigateButton = ({navigation}) => {
+  const onClickHeaderSearchBtn = () => {
     navigation.navigate('Search');
-  }
+  };
 
-  return(
-    <Button title="검색" onPress={onClickHeaderSearchBtn}/>
-  )
-}
+  return <Icon name="search" size={30} onPress={onClickHeaderSearchBtn} />;
+};
 
 export default HomeHeaderSearchNavigateButton;

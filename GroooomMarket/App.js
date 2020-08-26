@@ -17,15 +17,16 @@ import ChatRoom from 'src/component/Chatting/ChatRoom/ChatRoom';
 import SignUpView from 'src/view/Auth/SignUpView';
 const RootStack = createStackNavigator();
 
-const App =()=> {
-  const [isLoading,setIsLoading] = useState(false);
-  const [userContext,setUserContext] = useContext(UserState);
-  const [userState,setUserState] = useState(userContext);
+const App = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [userContext, setUserContext] = useContext(UserState);
 
-  if(!isLoading){
-    return(
-      <SplashWindow setIsLoading={setIsLoading}/>
-    )
+  const setIsLoadingTrue =()=> {
+    setIsLoading(true);
+  }
+
+  if (!isLoading) {
+    return <SplashWindow setIsLoadingTrue={setIsLoadingTrue} />;
   }
   return (
     <UserStateProvider>
@@ -45,18 +46,11 @@ const App =()=> {
               headerShown:false
             }}
           />
-          <RootStack.Screen 
-            name="Tab" 
-            component={BottomTab}
-            options={{
-                  headerShown:false
-                }}
-          />
           <RootStack.Screen
             name="ChatRoomModal"
             component={ChatRoom}
             options={{
-              headerShown:false
+              headerShown: false,
             }}
           />
           <RootStack.Screen
@@ -71,6 +65,5 @@ const App =()=> {
     </UserStateProvider>
   );
 };
-
 
 export default App;

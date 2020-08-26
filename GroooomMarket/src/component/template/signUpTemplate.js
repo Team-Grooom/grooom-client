@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import { View,Text } from 'react-native';
 import SignUpHeader from 'src/component/molecule/header/signUpHeader';
 import SignUpFormBody from 'src/component/organism/signUpFormBody';
-import Picker from '@react-native-community/picker';
+
 const dummyRegion =[
   "강남구","강동구","강북구","강서구","관악구","광진구","구로구",
   "금천구","노원구","도봉구","동대문구","동작구","마포구","서대문구",

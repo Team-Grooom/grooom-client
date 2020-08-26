@@ -41,7 +41,7 @@ const SignUpView =({navigation})=> {
       }
     })
     .catch((err)=>{
-      console.log('에러발생했다. : '+err);
+      alert('서버 연동 실패...');
     })
   }
 
