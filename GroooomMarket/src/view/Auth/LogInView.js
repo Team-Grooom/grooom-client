@@ -17,7 +17,7 @@ const LogInView =({navigation})=> {
   // navigation event
   const navigateToMain =()=> {
     navigation.dispatch(
-      StackActions.replace('SignUp') // 메인화면으로
+      StackActions.replace('Main') // 메인화면으로
     )
   }
 
