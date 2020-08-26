@@ -7,11 +7,10 @@ import SignUpSubmitButton from 'src/component/molecule/button/signUpSubmitButton
 import styled from 'styled-components/native';
 
 const BodyView = styled.View`
-  margin-top : 50%;
+  margin-top : 15%;
   display : flex;
   align-items : center;
   justify-content : flex-start;
-  height : 100%;
 `;
 
 const SignUpFormBody =({data=null,selectedValue,onChangeNickname,onChangePhoneNumber,onChangeLocation,onPress})=> {
