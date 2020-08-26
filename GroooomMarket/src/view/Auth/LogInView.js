@@ -2,41 +2,46 @@ import React from 'react';
 import LoginTemplate from 'src/component/template/LoginTemplate';
 import fetch from 'node-fetch';
 import RNSInfo from 'react-native-sensitive-info';
+import {StackActions} from '@react-navigation/native';
 
 const LogInView =({navigation})=> {
   
   //get Token from local storage
   const getToken = async () => {
-    return RNSInfo.getItem('key1', {
-        sharedPreferencesName: 'groomToken',
-        keychainService: 'groomToken'
+    return RNSInfo.getItem('groomToken', {
+        sharedPreferencesName: 'groom-market',
+        keychainService: 'groom-market'
     });
   }
 
   // navigation event
   const navigateToMain =()=> {
-    navigation.navigate('Main'); // 메인화면으로
+    navigation.dispatch(
+      StackActions.replace('Main') // 메인화면으로
+    )
   }
 
   // navigation event
-  const navigateToBack =()=> {
-    navigation.navigate('SignUp'); // 이전화면으로
+  const navigateToSignUp =()=> {
+    navigation.dispatch(
+      StackActions.replace('SignUp')
+    );
   }
 
   // Fetch Event
   const checkAuth =async()=> {
     const token = await getToken();
-    const URL = "ec2-3-34-134-199.ap-northeast-2.compute.amazonaws.com:8080/user/login";
+    const URL = `http://ec2-3-34-134-199.ap-northeast-2.compute.amazonaws.com:8080/login?token=${token}`;
     return await fetch(URL,{
-      method : 'Post',
+      method : 'POST',
       headers : {
-        'Content-Type' : 'application/json;charset=utf-8'
+        'Content-Type' : 'application/json'
       },
-      body : JSON.stringify(token),
     })
-    .then((res)=>res.json())
-    .then((json)=>{
-      if(json.statusCode===200){
+    .then((res)=>res.text())
+    .then((text)=>{
+      console.log(text);
+      if(text==="success"){
         return true;
       }
       else {
@@ -49,7 +54,7 @@ const LogInView =({navigation})=> {
   }
 
   return(
-    <LoginTemplate checkAuth={checkAuth} navigateToBack={navigateToBack} navigateToMain={navigateToMain}/>
+    <LoginTemplate checkAuth={checkAuth} navigateToSignUp={navigateToSignUp} navigateToMain={navigateToMain}/>
   )
 }
 

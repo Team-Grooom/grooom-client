@@ -24,7 +24,7 @@ const SignUpTemplate =({onPress})=> {
   const onChangeNickname=(text)=> {
     setUserInfo({
       ...userInfo,
-      nickname : text
+      nickName : text
     });
   }
   const onChangePhoneNumber=(text)=> {

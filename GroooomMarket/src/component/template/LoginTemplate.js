@@ -11,7 +11,7 @@ const StyledView = styled.View`
   background-color : white;
 `;
 
-const LoginTemplate =({checkAuth,navigateToMain,navigateToBack})=> {
+const LoginTemplate =({checkAuth,navigateToMain,navigateToSignUp})=> {
 
   const navigationEvent =async()=> {
     const result = await checkAuth();
@@ -19,7 +19,7 @@ const LoginTemplate =({checkAuth,navigateToMain,navigateToBack})=> {
     if(result){
       navigateToMain();
     }else{
-      navigateToBack();
+      navigateToSignUp();
     }
   };
 
