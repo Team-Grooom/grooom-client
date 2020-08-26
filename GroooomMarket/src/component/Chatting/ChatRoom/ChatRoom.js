@@ -4,7 +4,7 @@ import ChatRoomHeader from 'src/component/Chatting/ChatRoom/ChatRoomHeader';
 import ChatRoomInput from 'src/component/Chatting/ChatRoom/ChatRoomInput';
 import ChatRoomMessage from 'src/component/Chatting/ChatRoom/ChatRoomMessage';
 import styled from 'styled-components/native';
-import {SocketContextProvider} from 'store/ChatSocketStore';
+import {SocketContextProvider} from 'src/store/ChatSocketStore';
 
 const ChatInputContainer = styled.KeyboardAvoidingView`
   display:flex;

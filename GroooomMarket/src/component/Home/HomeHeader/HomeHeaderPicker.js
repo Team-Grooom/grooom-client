@@ -1,7 +1,6 @@
-import React, {useState, useContext, useEffect} from 'react';
-// 더이상 지원되지 않는 Picker임, select나 다른 대안을 찾을 것
+import React,{useState,useContext,useEffect} from 'react';
 import {Picker} from 'react-native';
-import {UserState} from '../../../../store/store';
+import {UserState} from '../../../store/store';
 
 const initialState = [
   {

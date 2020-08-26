@@ -2,7 +2,7 @@ import React,{useState,useEffect,useContext} from 'react';
 import styled from 'styled-components/native';
 import { View, FlatList } from 'react-native-gesture-handler';
 import MessageBubble from 'src/component/Chatting/ChatRoom/MessageBubble';
-import {SocketContext} from 'store/ChatSocketStore';
+import {SocketContext} from 'src/store/ChatSocketStore';
 
 const StyledView = styled.View`
   width : 100%;

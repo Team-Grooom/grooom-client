@@ -1,7 +1,7 @@
 import React, {useState, useContext, useEffect} from 'react';
 import {View, FlatList} from 'react-native';
 import styled from 'styled-components';
-import {UserState} from '../../../../store/store';
+import {UserState} from '../../../store/store';
 import EachItem from './EachItemList';
 
 const ItemList = ({navigation}) => {
