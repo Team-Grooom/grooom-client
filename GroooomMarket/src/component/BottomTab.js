@@ -1,12 +1,9 @@
 import React from 'react';
-import {} from 'react-native';
-import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import { create } from 'react-test-renderer';
 import HomePage from './Home/HomePage';
 import Category from './Category/Category';
 import Writing from './Writing/Writing';
-import Chatting from './Chatting/Chatting';
+import ChatListView from 'src/view/Chat/ChatListView';
 import MyPage from './MyPage/MyPage';
 import Icon from 'react-native-vector-icons/Ionicons'
 
@@ -56,7 +53,7 @@ const BottomTab =()=>{
         />
         <Tab.Screen 
           name="채팅" 
-          component={Chatting}
+          component={ChatListView}
         />
         <Tab.Screen 
           name="마이페이지" 

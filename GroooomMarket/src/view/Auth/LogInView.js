@@ -1,5 +1,5 @@
 import React from 'react';
-import LoginTemplate from 'src/component/template/LoginTemplate';
+import LoginTemplate from 'src/component/template/loginTemplate';
 import fetch from 'node-fetch';
 import RNSInfo from 'react-native-sensitive-info';
 import {StackActions} from '@react-navigation/native';
