@@ -1,56 +1,53 @@
 import React from 'react';
-import {View,TouchableOpacity,Text,StyleSheet} from 'react-native';
+import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 const HeaderTextStyle = require('assets/styles/conceptStyle');
 
-const MyPageHeader =({navigation})=>{
-
-  const onClickMyPageHeaderBtn =()=>{
+const MyPageHeader = ({navigation}) => {
+  const onClickMyPageHeaderBtn = () => {
     // navigate to Profie Setting Screen
     navigation.navigate();
-  }
+  };
 
-  return(
-    <View style = {myPageStyle.container}>
-      <View style ={myPageStyle.innerContainer}>
-        <Text style={HeaderTextStyle.HeaderFont}>
-          마이 페이지
-        </Text>
+  return (
+    <View style={myPageStyle.container}>
+      <View style={myPageStyle.innerContainer}>
+        <Text style={HeaderTextStyle.HeaderFont}>마이 페이지</Text>
         <TouchableOpacity style={myPageStyle.settingButton}>
-          <Icon style={myPageStyle.icon} name="cog-outline"></Icon>
+          <Icon style={myPageStyle.icon} name="cog-outline" />
         </TouchableOpacity>
       </View>
     </View>
   );
-}
+};
 
 export default MyPageHeader;
 
 const myPageStyle = StyleSheet.create({
-  settingButton : {
-    display:"flex",
-    alignItems: "center",
-    justifyContent:"center",
-    marginRight:0
+  settingButton: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginRight: 0,
   },
-  ButtonText : {
-    margin:5,
-    fontSize:15,
-  }, 
-  HeaderText : {
-    fontSize: 20
+  ButtonText: {
+    margin: 5,
+    fontSize: 15,
   },
-  innerContainer : {
-    margin : 10,
-    flexDirection : "row",
-    justifyContent:"space-between"
+  HeaderText: {
+    fontSize: 20,
   },
-  container:{
-    backgroundColor:"#99ccff",
+  innerContainer: {
+    margin: 10,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
-  icon:{
-    color:"#e6f2ff",
-    fontSize:30
-  }
+  container: {
+    backgroundColor: '#99ccff',
+  },
+  icon: {
+    color: '#e6f2ff',
+    fontSize: 30,
+  },
 });

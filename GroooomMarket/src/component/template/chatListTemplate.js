@@ -1,74 +1,65 @@
-import React from 'react';
-import { View } from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {View} from 'react-native';
 import ChatListHeader from 'src/component/molecule/header/chatListHeader';
 import ChatListBody from 'src/component/organism/chatListBody';
 import ChatListItem from 'src/component/molecule/listItem/chatListItem';
 import styled from 'styled-components/native';
 
-const dummyChatList = [
-  {
-    id : 1,
-    source : "https://via.placeholder.com/150",
-    userName : "전설의 판매자",
-    lastChatMsg : "연락 늦게 읽었네요~",
-    lastChatDate : "2020-08-27 23:22"
-  },
-  {
-    id : 2,
-    source : "https://via.placeholder.com/150",
-    userName : "김 머릉",
-    lastChatMsg : "아 빨리 사세요 빡치니까..;",
-    lastChatDate : "2020-08-26 23:22"
-  },
-  {
-    id : 3,
-    source : "https://via.placeholder.com/150",
-    userName : "김 머릉",
-    lastChatMsg : "아 빨리 사세요 빡치니까..;",
-    lastChatDate : "2020-08-26 23:22"
-  },
-  {
-    id : 4,
-    source : "https://via.placeholder.com/150",
-    userName : "김 머릉",
-    lastChatMsg : "아 빨리 사세요 빡치니까..;",
-    lastChatDate : "2020-08-26 23:22"
-  },
-  {
-    id : 5,
-    source : "https://via.placeholder.com/150",
-    userName : "김 머릉",
-    lastChatMsg : "아 빨리 사세요 빡치니까..;",
-    lastChatDate : "2020-08-26 23:22"
-  },
-  {
-    id : 6,
-    source : "https://via.placeholder.com/150",
-    userName : "김 머릉",
-    lastChatMsg : "아 빨리 사세요 빡치니까..;",
-    lastChatDate : "2020-08-26 23:22"
-  },
-];
-
 const ChatListView = styled.View`
-  background-color : white;
-  height : 100%;
+  background-color: white;
+  height: 100%;
 `;
 
-const ChatListTemplate =({navigation,navigateToChatRoom})=> {
+const ChatListTemplate = ({chatFetch, navigation, navigateToChatRoom}) => {
+  // chatList State
+  const [chatList, setChatList] = useState([]);
 
-  const renderChatListItem =({item})=> {
+  // Fetch Data 처리
+  const updateChatList = async () => {
+    const result = await chatFetch();
+    console.log('반환값: ' + result);
+    if (result.statusCode === 200) {
+      // success
+      setChatList(result.data);
+    } else {
+      // fail
+      alert('채팅 리스트를 가져오는데 실패하였습니다.');
+    }
+  };
+
+  // set ChatList when DOM did Mount
+  useEffect(() => {
+    updateChatList();
+  }, []);
+
+  // TODO: source,lastChatMsg, lastChatDate is dummy url
+  const renderChatListItem = ({item}) => {
     return (
-      <ChatListItem navigation={navigation} onPress={navigateToChatRoom} id={item.id} source={item.source} userName={item.userName} lastChatMsg={item.lastChatMsg} lastChatDate={item.lastChatDate}/>
-    )
-  }
+      <ChatListItem
+        navigation={navigation}
+        onPress={navigateToChatRoom}
+        id={item._id}
+        source={'https://via.placeholder.com/150'}
+        userName={item.seller}
+        roomCode={item.roomCode}
+        lastChatMsg={'최근 대화 내역'}
+        lastChatDate={'날짜 받아오기'}
+      />
+    );
+  };
 
-  return(
+  return (
     <ChatListView>
-      <ChatListHeader/>
-      <ChatListBody navigation={navigation} onPress={navigateToChatRoom} chatData={dummyChatList} renderItem={renderChatListItem} selectKey={item=>item.id}/>
+      <ChatListHeader />
+      <ChatListBody
+        navigation={navigation}
+        onPress={navigateToChatRoom}
+        chatData={chatList}
+        renderItem={renderChatListItem}
+        selectKey={item => item.id}
+      />
     </ChatListView>
-  )
-}
+  );
+};
 
 export default ChatListTemplate;
