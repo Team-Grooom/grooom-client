@@ -6,7 +6,7 @@ import {SocketContext} from 'src/store/ChatSocketStore';
 
 const StyledView = styled.View`
   width : 100%;
-  height : 86%;
+  height : 80%;
 `;
 
 const ChatRoomMessage =({roomCode,user})=> {
