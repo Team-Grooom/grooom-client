@@ -5,8 +5,10 @@ import styled from 'styled-components';
 const fetch = require('node-fetch');
 // TODO: navigation props handle, fetch api to 혁상 API, get seoul JSON Dummy
 
-const SignUpBackground = styled.View`
+const SignUpBackground = styled.ScrollView`
   background-color : white;
+  height : 100%;
+  width : 100%;
 `;
 
 const SignUpView =({navigation})=> {

@@ -7,7 +7,7 @@ import styled from 'styled-components/native';
 
 // View, Flex 1 to Parent Component
 const Wrapper = styled.View`
-  width : 350px;
+  width : 80%;
   display : flex;
   align-items : center;
   justify-content : center;

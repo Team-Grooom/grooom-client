@@ -7,7 +7,7 @@ import styled from 'styled-components/native';
 
 const StyledView = styled.View`
   margin : 10px;
-  width : 350px;
+  width : 80%;
   border-width : 3px;
   border-color : gray;
   border-radius : 20px;
