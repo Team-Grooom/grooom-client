@@ -1,7 +1,6 @@
 import React from 'react';
 import { View,Text } from 'react-native';
 import Input from 'src/component/atom/input';
-import Label from 'src/component/atom/label';
 import Icon from 'react-native-vector-icons/AntDesign';
 import styled from 'styled-components/native';
 

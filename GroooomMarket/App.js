@@ -29,7 +29,7 @@ const App = () => {
     return <SplashWindow setIsLoadingTrue={setIsLoadingTrue} />;
   }
   return (
-    <UserStateProvider>
+  <UserStateProvider>
       <NavigationContainer>
         <RootStack.Navigator>
           <RootStack.Screen
