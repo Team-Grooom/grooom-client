@@ -3,7 +3,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import HomePage from './Home/HomePage';
 import Category from './Category/Category';
 import Writing from './Writing/Writing';
-import ChatListView from 'src/component/template/chatRoomTemplate';
+import ChatListView from 'src/view/Chat/ChatListView';
 import MyPage from './MyPage/MyPage';
 import Icon from 'react-native-vector-icons/Ionicons';
 
