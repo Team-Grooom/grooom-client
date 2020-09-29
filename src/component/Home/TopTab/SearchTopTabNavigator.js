@@ -1,0 +1,25 @@
+import React from 'react';
+import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
+import AdvertisingView from '../Advertising/Advetising';
+import TradingView from '../Trading/Trading';
+
+const Tab = createMaterialTopTabNavigator();
+
+const SearchTopTabNavigator = ({navigation}) => {
+  return (
+    <Tab.Navigator initialRouteName="중고거래">
+      <Tab.Screen
+        name="중고거래"
+        component={TradingView}
+        navigation={navigation}
+      />
+      <Tab.Screen
+        name="동네생활"
+        component={AdvertisingView}
+        navigation={navigation}
+      />
+    </Tab.Navigator>
+  );
+};
+
+export default SearchTopTabNavigator;
