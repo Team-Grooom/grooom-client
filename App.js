@@ -1,11 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
 import React,{useState,useEffect,useContext} from 'react';
 import {createStackNavigator} from '@react-navigation/stack'
 import SplashWindow from "./src/view/splashView";
@@ -54,16 +46,24 @@ const App = () => {
             }}
           />
           <RootStack.Screen
-              name="SignUp"
-              component={SignUpView}
-              options ={{
-                headerShown:false
-              }}
+          name="SignUp"
+          component={SignUpView}
+          options ={{
+            headerShown:false
+          }}
           />
         </RootStack.Navigator>
       </NavigationContainer>
     </UserStateProvider>
   );
 };
+<RootStack.Screen
+name="Login"
+component={LoginView}
+options ={{
+  headerShown:false
+}}
+/>
+
 
 export default App;

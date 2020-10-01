@@ -10,14 +10,13 @@ const ChatListView = styled.View`
   height: 100%;
 `;
 
-const ChatListTemplate = ({chatFetch, navigation, navigateToChatRoom}) => {
+const ChatListTemplate = ({chatFetch, navigation}) => {
   // chatList State
   const [chatList, setChatList] = useState([]);
 
   // Fetch Data 처리
   const updateChatList = async () => {
     const result = await chatFetch();
-    console.log('반환값: ' + result);
     if (result.statusCode === 200) {
       // success
       setChatList(result.data);
@@ -32,12 +31,19 @@ const ChatListTemplate = ({chatFetch, navigation, navigateToChatRoom}) => {
     updateChatList();
   }, []);
 
+  // Navigation Event to Chat Room
+  const navigateToChatRoom = roomCode => {
+    navigation.navigate('ChatRoomModal', {
+      roomCode: roomCode,
+    });
+  };
+
   // TODO: source,lastChatMsg, lastChatDate is dummy url
   const renderChatListItem = ({item}) => {
     return (
       <ChatListItem
         navigation={navigation}
-        onPress={navigateToChatRoom}
+        onPress={() => navigateToChatRoom(item.roomCode)}
         id={item._id}
         source={'https://via.placeholder.com/150'}
         userName={item.seller}
@@ -53,7 +59,7 @@ const ChatListTemplate = ({chatFetch, navigation, navigateToChatRoom}) => {
       <ChatListHeader />
       <ChatListBody
         navigation={navigation}
-        onPress={navigateToChatRoom}
+        onPress={item => navigateToChatRoom(item.roomCode)}
         chatData={chatList}
         renderItem={renderChatListItem}
         selectKey={item => item.id}
