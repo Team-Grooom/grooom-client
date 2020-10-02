@@ -1,11 +1,12 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import Icon from 'react-native-vector-icons/Ionicons';
+
 import HomePage from './Home/HomePage';
 import Category from './Category/Category';
 import Writing from './Writing/Writing';
 import ChatListView from 'src/view/Chat/ChatListView';
-import MyPage from './MyPage/MyPage';
-import Icon from 'react-native-vector-icons/Ionicons';
+import MyPageView from 'src/view/MyPage/MyPageView';
 
 // 헤더옵션은 다 Navigtor 옵션으로 통일하자 영우야
 
@@ -40,7 +41,7 @@ const BottomTab = () => {
       <Tab.Screen name="카테고리" component={Category} />
       <Tab.Screen name="글쓰기" component={Writing} />
       <Tab.Screen name="채팅" component={ChatListView} />
-      <Tab.Screen name="마이페이지" component={MyPage} />
+      <Tab.Screen name="마이페이지" component={MyPageView} />
     </Tab.Navigator>
   );
 };
