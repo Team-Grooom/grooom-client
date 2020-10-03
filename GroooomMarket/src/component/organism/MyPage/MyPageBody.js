@@ -6,7 +6,11 @@ import ProfilePictureThumbnail from 'src/component/molecule/button/ProfilePictur
 import ProfileSettingButton from 'src/component/molecule/button/ProfileSettingButton';
 import SellLogButton from 'src/component/molecule/button/SellLogButton';
 
-const MyPageBody = () => {
+const MyPageBody = ({navigation}) => {
+  const navigateToAreaSetting = () => {
+    navigation.navigate('AreaSetting');
+  };
+
   return (
     <BodyContainer>
       <ProfileSettingWrapper>
@@ -34,7 +38,7 @@ const MyPageBody = () => {
       <SettingWrapper>
         <TextMenuButton
           title="지역 설정하기"
-          onPress={() => alert('지역설정')}
+          onPress={navigateToAreaSetting}
           textSize="24"
         />
       </SettingWrapper>

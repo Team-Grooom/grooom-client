@@ -2,13 +2,13 @@ import React from 'react';
 import styled from 'styled-components/native';
 
 import MyPageHeader from 'src/component/molecule/header/MyPageHeader';
-import MyPageBody from 'src/component/organism/MyPageBody';
+import MyPageBody from 'src/component/organism/MyPage/MyPageBody';
 
-const MyPageTemplate = () => {
+const MyPageTemplate = ({navigation}) => {
   return (
     <MyPageContainer>
       <MyPageHeader />
-      <MyPageBody />
+      <MyPageBody navigation={navigation} />
     </MyPageContainer>
   );
 };
