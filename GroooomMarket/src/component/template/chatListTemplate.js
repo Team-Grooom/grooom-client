@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {View} from 'react-native';
 import ChatListHeader from 'src/component/molecule/header/chatListHeader';
-import ChatListBody from 'src/component/organism/chatListBody';
+import ChatListBody from 'src/component/organism/Chatting/chatListBody';
 import ChatListItem from 'src/component/molecule/listItem/chatListItem';
 import styled from 'styled-components/native';
 

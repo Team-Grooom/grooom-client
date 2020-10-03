@@ -2,7 +2,7 @@ import React, {useRef, useState, useEffect} from 'react';
 import styled from 'styled-components';
 
 import ChatRoomHeader from 'src/component/molecule/header/chatRoomHeader';
-import ChatRoomBody from 'src/component/organism/chatRoomBody';
+import ChatRoomBody from 'src/component/organism/Chatting/chatRoomBody';
 import MessageBubble from 'src/component/atom/messageBubble';
 
 const DummyChat = [
