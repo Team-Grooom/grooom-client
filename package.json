@@ -1,0 +1,63 @@
+{
+  "name": "GroooomMarket",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start",
+    "test": "jest",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@react-native-community/masked-view": "^0.1.10",
+    "@react-native-community/picker": "^1.6.6",
+    "@react-navigation/bottom-tabs": "^5.6.1",
+    "@react-navigation/material-top-tabs": "^5.2.16",
+    "@react-navigation/native": "^5.6.1",
+    "@react-navigation/stack": "^5.6.2",
+    "axios": "^0.20.0",
+    "iamport-react-native": "^1.5.2",
+    "lottie-react-native": "^3.5.0",
+    "module-resolve": "^1.1.1",
+    "node-fetch": "^2.6.1",
+    "react": "16.11.0",
+    "react-native": "0.62.2",
+    "react-native-elements": "^2.2.1",
+    "react-native-geolocation-service": "^5.0.0",
+    "react-native-gesture-handler": "^1.6.1",
+    "react-native-maps": "^0.27.1",
+    "react-native-reanimated": "^1.9.0",
+    "react-native-safe-area-context": "^3.0.7",
+    "react-native-screens": "^2.9.0",
+    "react-native-sensitive-info": "^6.0.0-alpha.5",
+    "react-native-tab-view": "^2.15.1",
+    "react-native-vector-icons": "^7.0.0",
+    "react-native-webview": "^10.7.0",
+    "socket.io-client": "^2.3.0",
+    "styled-components": "^5.1.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.2",
+    "@babel/runtime": "^7.6.2",
+    "@react-native-community/eslint-config": "^0.0.5",
+    "babel-jest": "^24.9.0",
+    "babel-plugin-module-resolver": "^4.0.0",
+    "eslint": "^6.5.1",
+    "eslint-import-resolver-babel-module": "^5.1.2",
+    "eslint-plugin-import": "^2.22.0",
+    "iamport-react-native": "^1.5.2",
+    "jest": "^24.9.0",
+    "metro-react-native-babel-preset": "^0.58.0",
+    "react-native-webview": "^10.7.0",
+    "react-test-renderer": "16.11.0"
+  },
+  "jest": {
+    "preset": "react-native"
+  },
+  "rnpm": {
+    "assets": [
+      "./assets/fonts/"
+    ]
+  }
+}
