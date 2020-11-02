@@ -7,14 +7,19 @@ const Tab = createMaterialTopTabNavigator();
 
 const SearchTopTabNavigator = ({navigation}) => {
   return (
-    <Tab.Navigator initialRouteName="중고거래">
+    <Tab.Navigator initialRouteName="중고거래" backBehavior="none">
       <Tab.Screen
         name="중고거래"
         component={TradingView}
         navigation={navigation}
       />
       <Tab.Screen
-        name="동네생활"
+        name="동네정보"
+        component={AdvertisingView}
+        navigation={navigation}
+      />
+      <Tab.Screen
+        name="사람"
         component={AdvertisingView}
         navigation={navigation}
       />
