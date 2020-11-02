@@ -7,7 +7,7 @@ const Tab = createMaterialTopTabNavigator();
 
 const TopTabNavigator = ({navigation}) => {
   return (
-    <Tab.Navigator initialRouteName="중고거래">
+    <Tab.Navigator initialRouteName="중고거래" backBehavior="none">
       <Tab.Screen
         name="중고거래"
         component={TradingView}
