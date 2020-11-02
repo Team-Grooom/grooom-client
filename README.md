@@ -1,2 +1,0 @@
-# grooom-client
-client
