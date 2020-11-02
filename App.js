@@ -7,6 +7,7 @@ import {UserStateProvider,UserState} from './src/store/store';
 import { StackActions,NavigationContainer } from '@react-navigation/native';
 import ChatRoom from 'src/component/Chatting/ChatRoom/ChatRoom';
 import SignUpView from 'src/view/Auth/SignUpView';
+import AreaSettingView from 'src/view/Settings/AreaSettingView';
 const RootStack = createStackNavigator();
 
 const App = () => {
@@ -51,6 +52,13 @@ const App = () => {
           options ={{
             headerShown:false
           }}
+          />
+          <RootStack.Screen
+            name="AreaSetting"
+            component={AreaSettingView}
+            options={{
+              headerShown: false,
+            }}
           />
         </RootStack.Navigator>
       </NavigationContainer>

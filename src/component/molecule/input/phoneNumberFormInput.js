@@ -10,7 +10,6 @@ const Wrapper = styled.View`
   display : flex;
   align-items : center;
   justify-content : center;
-  margin : 10px;
 `;
 
 const PhoneNumberFormInput=({onChange})=>{

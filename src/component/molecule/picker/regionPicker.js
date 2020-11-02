@@ -6,7 +6,6 @@ import styled from 'styled-components/native';
 // TODO: Items mean Picker.item
 
 const StyledView = styled.View`
-  margin : 10px;
   width : 80%;
   border-width : 3px;
   border-color : gray;

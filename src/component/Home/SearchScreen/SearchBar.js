@@ -1,19 +1,20 @@
 import React from 'react';
-import {SearchBar} from 'react-native-elements';
+import {TextInput,View,Button} from 'react-native';
 
-const SearchBarComponent = ({searchValue, setSearchValue}) => {
-  const updateSearch = search => {
-    setSearchValue(search);
-  };
+const SearchBar =()=> {
 
-  return (
-    <SearchBar
-      placeholder="검색어를 입력하세요"
-      onChangeText={updateSearch}
-      value={searchValue}
-      lightTheme={true}
-    />
-  );
-};
+  const reqSearchBtnListner =()=> {
+    // call search fetch api
+  }
 
-export default SearchBarComponent;
+  return(
+    <View>
+      <TextInput>
+      </TextInput>
+      <Button title="Search">
+      </Button>
+    </View>
+  )
+}
+
+export default SearchBar;

@@ -15,7 +15,6 @@ const Wrapper = styled.View`
   width : 80%;
   align-items : center;
   justify-content : center;
-  margin : 10px;  
 `;
 
 const NicknameFormInput =({onChange})=> {
