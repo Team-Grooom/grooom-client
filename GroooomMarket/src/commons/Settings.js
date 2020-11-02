@@ -1,4 +1,4 @@
-export const Space={
+export const space={
   "xTiny": "4px",
   "tiny": "8px",
   "small": "16px",
@@ -6,7 +6,7 @@ export const Space={
   "medium": "32px",
 }
 
-export const Font ={
+export const font ={
   "small": "15px",
   "medium": "20px",
   "large": "30px",

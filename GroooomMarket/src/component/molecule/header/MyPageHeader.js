@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 import HeaderWrapper from 'src/component/atom/headerWrapper';
 import Label from 'src/component/atom/label';
 
-import {Settings} from 'src/commons/Settings';
+import {space} from 'src/commons/Settings';
 
 const MyPageHeader = () => {
   return (
@@ -15,7 +15,7 @@ const MyPageHeader = () => {
 
 const MyPageHeaderWrapper = styled.View`
   background-color: skyblue;
-  padding: ${Settings.small};
+  padding: ${space.small};
 `;
 
 export default MyPageHeader;

@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 
 const StyledText = styled.Text`
   color : ${props=> props.color};
-  font-size : ${props=> props.size}px;
+  font-size : ${props=> props.size};
 `;
 
 const Label =({text,color,size})=> {
