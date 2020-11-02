@@ -5,10 +5,10 @@ import {PermissionsAndroid} from 'react-native';
 import AreaSettingAnimation from 'src/component/molecule/Animation/AreaSettingAnimation';
 import AreaSlider from 'src/component/molecule/slider/AreaSlider';
 
-const AreaSettingBody = () => {
+const AreaSettingBody = ({getTownByLevel}) => {
   const [areaLevel, setAreaLevel] = useState(1);
   const [locationAuthority, setLocationAuthority] = useState(false);
-  const [userLocation, setUserLocation] = useState();
+  const [userLocation, setUserLocation] = useState({});
 
   const checkUserLocationAuthority = async () => {
     const granted = await PermissionsAndroid.check(
@@ -17,9 +17,6 @@ const AreaSettingBody = () => {
     if (granted) {
       setLocationAuthority(true);
     } else {
-      alert(
-        '위치 권한이 없습니다.\n위치 권한을 수락해주셔야 원활한 서비스 이용이 가능합니다.',
-      );
       const isAuthority = await PermissionsAndroid.request(
         PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
         {
@@ -39,21 +36,21 @@ const AreaSettingBody = () => {
     checkUserLocationAuthority();
   }, []);
 
-  // useEffect(() => {
-  //   if (locationAuthority) {
-  //     // 위치 권한이 승인되었다면?
-  //     Geolocation.getCurrentPosition(
-  //       position => {
-  //         console.log(position);
-  //       },
-  //       error => {
-  //         // See error code charts below.
-  //         console.log(error.code, error.message);
-  //       },
-  //       {enableHighAccuracy: true, timeout: 15000, maximumAge: 10000},
-  //     );
-  //   }
-  // }, [locationAuthority]);
+  useEffect(() => {
+    if (locationAuthority) {
+      // 위치 권한이 승인되었다면?
+      Geolocation.getCurrentPosition(
+        position => {
+          setUserLocation(position);
+        },
+        error => {
+          // 에러 핸들러 만들어야함.
+          console.log(error.code, error.message);
+        },
+        {enableHighAccuracy: true, timeout: 15000, maximumAge: 10000},
+      );
+    }
+  }, [locationAuthority]);
 
   useEffect(() => {
     console.log(areaLevel);

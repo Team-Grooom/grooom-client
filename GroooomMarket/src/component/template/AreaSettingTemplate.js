@@ -3,11 +3,11 @@ import React from 'react';
 import AreaSettingBody from 'src/component/organism/Settings/AreaSettingBody';
 import AreaSettingHeader from 'src/component/molecule/header/AreaSettingHeader';
 
-const AreaSettingTemplate = () => {
+const AreaSettingTemplate = ({getTownByLevel}) => {
   return (
     <>
       <AreaSettingHeader />
-      <AreaSettingBody />
+      <AreaSettingBody getTownByLevel={getTownByLevel} />
     </>
   );
 };
