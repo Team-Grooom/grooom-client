@@ -53,7 +53,7 @@ const AreaSettingBody = ({getTownByLevel}) => {
   }, [locationAuthority]);
 
   useEffect(() => {
-    console.log(areaLevel);
+    // console.log(areaLevel);
   }, [areaLevel]);
 
   return (

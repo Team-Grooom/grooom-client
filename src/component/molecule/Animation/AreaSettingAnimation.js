@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 import LottieView from 'lottie-react-native';
 
 const AreaSettingAnimation = ({areaLevel}) => {
-  console.log(areaLevel);
+  // console.log(areaLevel);
   return (
     <AnimationContainer>
       <RangeAnimation
