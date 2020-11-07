@@ -1,11 +1,19 @@
-import React,{useState,useEffect,useContext} from 'react';
-import {createStackNavigator} from '@react-navigation/stack'
-import SplashWindow from "./src/view/splashView";
+/**
+ * Sample React Native App
+ * https://github.com/facebook/react-native
+ *
+ * @format
+ * @flow strict-local
+ */
+
+import React, {useState, useEffect, useContext} from 'react';
+import {createStackNavigator} from '@react-navigation/stack';
+import SplashWindow from './src/view/splashView';
 import BottomTab from './src/component/BottomTab';
 import LoginView from 'src/view/Auth/LogInView';
-import {UserStateProvider,UserState} from './src/store/store';
-import { StackActions,NavigationContainer } from '@react-navigation/native';
-import ChatRoom from 'src/component/Chatting/ChatRoom/ChatRoom';
+import {UserStateProvider, UserState} from './src/store/store';
+import {StackActions, NavigationContainer} from '@react-navigation/native';
+import ChatRoom from 'src/component/template/chatRoomTemplate';
 import SignUpView from 'src/view/Auth/SignUpView';
 import AreaSettingView from 'src/view/Settings/AreaSettingView';
 const RootStack = createStackNavigator();
@@ -14,29 +22,29 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [userContext, setUserContext] = useContext(UserState);
 
-  const setIsLoadingTrue =()=> {
+  const setIsLoadingTrue = () => {
     setIsLoading(true);
-  }
+  };
 
   if (!isLoading) {
     return <SplashWindow setIsLoadingTrue={setIsLoadingTrue} />;
   }
   return (
-  <UserStateProvider>
+    <UserStateProvider>
       <NavigationContainer>
         <RootStack.Navigator>
           <RootStack.Screen
             name="Login"
             component={LoginView}
-            options ={{
-              headerShown:false
+            options={{
+              headerShown: false,
             }}
           />
-          <RootStack.Screen 
+          <RootStack.Screen
             name="Main"
             component={BottomTab}
             options={{
-              headerShown:false
+              headerShown: false,
             }}
           />
           <RootStack.Screen
@@ -47,11 +55,11 @@ const App = () => {
             }}
           />
           <RootStack.Screen
-          name="SignUp"
-          component={SignUpView}
-          options ={{
-            headerShown:false
-          }}
+            name="SignUp"
+            component={SignUpView}
+            options={{
+              headerShown: false,
+            }}
           />
           <RootStack.Screen
             name="AreaSetting"
@@ -65,13 +73,5 @@ const App = () => {
     </UserStateProvider>
   );
 };
-<RootStack.Screen
-name="Login"
-component={LoginView}
-options ={{
-  headerShown:false
-}}
-/>
-
 
 export default App;

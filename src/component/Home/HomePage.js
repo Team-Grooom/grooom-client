@@ -1,4 +1,5 @@
 import React from 'react';
+import {View, Text} from 'react-native';
 import HomeHeader from './HomeHeader/HomeHeader';
 import SearchScreen from './SearchScreen/SearchScreen';
 import FilteringAreaScreen from '../MyPage/Setting/FilteringAreaScreen';
