@@ -16,6 +16,7 @@ import {StackActions, NavigationContainer} from '@react-navigation/native';
 import ChatRoom from 'src/component/template/chatRoomTemplate';
 import SignUpView from 'src/view/Auth/SignUpView';
 import AreaSettingView from 'src/view/Settings/AreaSettingView';
+import CategoryItemList from 'src/component/Items/ItemList/ItemList';
 const RootStack = createStackNavigator();
 
 const App = () => {
@@ -64,6 +65,13 @@ const App = () => {
           <RootStack.Screen
             name="AreaSetting"
             component={AreaSettingView}
+            options={{
+              headerShown: false,
+            }}
+          />
+          <RootStack.Screen
+            name="CategoryItemList"
+            component={CategoryItemList}
             options={{
               headerShown: false,
             }}
